@@ -4,8 +4,8 @@
 One script for multiple habits. Each habit's configuration settings are stored in JSON instead of edited constants, and will be editable via a config wizard. 
 
 Decided:
-- [ ] **Habit chosen by widget parameter**: the widget's Parameter field sets the habit name, which decides which files are loaded. Tapping passes the name back through `widget.url` (`scriptable:///run/<Script>?habit=<Name>`).
-  - [ ] First, test this on a phone with [experiments/param-test.js](experiments/param-test.js).
+- [ ] **Habit chosen by widget parameter**: the widget's Parameter field sets the habit name, which decides which files are loaded. A plain tap (When Interacting → Run Script) also receives `args.widgetParameter`, so no `widget.url` is needed.
+  - [x] Tested on a phone: see [experiments/param-test](experiments/param-test/README.md).
 - [ ] **Two files per habit**: a config file and a data file. Proposed layout is one folder per habit (`Habits/<Habit>/config.json` + `Habits/<Habit>/data.json`), so renaming a habit means renaming one folder.
 - [ ] **Drop the per-year split**: one data file per habit, with `YYYY-MM-DD` keys built from each date's own year. This matches John's `USER_DATE_FORMAT = 0`. It fixes the year-boundary bug below.
 - [ ] **Migration** of existing `<Habit> <Year>.json` files into the new format:
